@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚨 Centro de Mando — Alertamiento Carretero</title>
+  <meta name="description" content="Sistema de Alertamiento Carretero en Tiempo Real. Monitoreo de peligros viales en Tuxpan, Veracruz.">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ── Header ─────────────────────────────────────── -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="header-icon pulse-glow">🚨</div>
+      <div>
+        <h1 class="header-title">Centro de Mando</h1>
+        <p class="header-subtitle">Alertamiento Carretero en Tiempo Real</p>
+      </div>
+    </div>
+    <div class="header-status">
+      <span class="status-dot" id="statusDot"></span>
+      <span class="status-text" id="statusText">Conectando...</span>
+    </div>
+  </header>
+
+  <!-- ── Main Layout ────────────────────────────────── -->
+  <main class="main-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card stat-total">
+          <div class="stat-icon">📊</div>
+          <div class="stat-info">
+            <span class="stat-value" id="totalAlertas">0</span>
+            <span class="stat-label">Alertas Activas</span>
+          </div>
+        </div>
+        <div class="stat-card stat-app">
+          <div class="stat-icon">📱</div>
+          <div class="stat-info">
+            <span class="stat-value" id="totalApp">0</span>
+            <span class="stat-label">Vía App</span>
+          </div>
+        </div>
+        <div class="stat-card stat-twitter">
+          <div class="stat-icon">🐦</div>
+          <div class="stat-info">
+            <span class="stat-value" id="totalTwitter">0</span>
+            <span class="stat-label">Vía Twitter</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="legend-card">
+        <h3 class="legend-title">Tipos de Alerta</h3>
+        <div class="legend-items">
+          <div class="legend-item">
+            <span class="legend-dot" style="background: #ef4444;"></span>
+            <span>Accidente</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: #f97316;"></span>
+            <span>Derrumbe</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: #3b82f6;"></span>
+            <span>Inundación</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: #eab308;"></span>
+            <span>Obra Vial</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: #22c55e;"></span>
+            <span>Animal en Vía</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: #a855f7;"></span>
+            <span>Bache / Otros</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="activity-card">
+        <h3 class="activity-title">Actividad Reciente</h3>
+        <div class="activity-list" id="activityList">
+          <div class="activity-empty">Sin actividad reciente</div>
+        </div>
+      </div>
+
+      <!-- Test Button -->
+      <button class="btn-test" id="btnTest" title="Enviar alerta de prueba">
+        🧪 Enviar Alerta de Prueba
+      </button>
+    </aside>
+
+    <!-- Map Container -->
+    <div class="map-wrapper">
+      <div id="map" class="map-container"></div>
+      <!-- Toast notifications -->
+      <div class="toast-container" id="toastContainer"></div>
+    </div>
+  </main>
+
+  <!-- ── Scripts ────────────────────────────────────── -->
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- Socket.io Client -->
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- App JS -->
+  <script src="app.js"></script>
+</body>
+</html>
