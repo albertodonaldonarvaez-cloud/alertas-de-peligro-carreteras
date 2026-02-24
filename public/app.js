@@ -12,6 +12,7 @@
 
     // ── Tipos de alerta → estilos ─────────────────────────
     const ALERT_STYLES = {
+        peligro: { icon: '🔴', color: '#dc2626', label: 'Peligro' },
         accidente: { icon: '💥', color: '#ef4444', label: 'Accidente' },
         derrumbe: { icon: '🪨', color: '#f97316', label: 'Derrumbe' },
         inundacion: { icon: '🌊', color: '#3b82f6', label: 'Inundación' },
@@ -290,7 +291,7 @@
         const btn = document.getElementById('btnTest');
         if (!btn) return;
 
-        const testTypes = ['accidente', 'derrumbe', 'inundacion', 'obra_vial', 'animal_en_via', 'bache'];
+        const testTypes = ['peligro', 'accidente', 'derrumbe', 'inundacion', 'obra_vial', 'animal_en_via', 'bache'];
 
         btn.addEventListener('click', async () => {
             btn.disabled = true;

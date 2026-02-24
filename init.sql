@@ -40,6 +40,7 @@ CREATE INDEX IF NOT EXISTS idx_alertas_fecha
 -- Datos de ejemplo para pruebas (carreteras de Tuxpan, Veracruz)
 -- ============================================================
 INSERT INTO alertas (tipo_alerta, origen, ubicacion, descripcion) VALUES
+    ('peligro',         'app',     ST_SetSRID(ST_MakePoint(-97.4050, 20.9500), 4326), '⚠️ PELIGRO: Tramo de alta peligrosidad, precaución extrema'),
     ('accidente',       'app',     ST_SetSRID(ST_MakePoint(-97.3983, 20.9574), 4326), 'Accidente vehicular en libramiento Tuxpan'),
     ('derrumbe',        'twitter', ST_SetSRID(ST_MakePoint(-97.4150, 20.9350), 4326), 'Derrumbe parcial reportado en carretera costera'),
     ('inundacion',      'app',     ST_SetSRID(ST_MakePoint(-97.3800, 20.9700), 4326), 'Tramo inundado después de lluvias fuertes'),

@@ -142,6 +142,7 @@ sistema-alertamiento-carretero/
 
 | Tipo | Icono | Color |
 |------|-------|-------|
+| `peligro` | 🔴 | Rojo Intenso |
 | `accidente` | 💥 | Rojo |
 | `derrumbe` | 🪨 | Naranja |
 | `inundacion` | 🌊 | Azul |
